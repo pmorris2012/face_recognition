@@ -165,7 +165,7 @@ def _raw_face_landmarks(face_image, face_locations=None, model="large"):
     return [pose_predictor(face_image, face_location) for face_location in face_locations]
 
 
-def face_landmarks(face_image, face_locations=None, model="large"):
+def face_landmarks(face_image, face_locations=None, model="large", return_dict=False):
     """
     Given an image, returns a dict of face feature locations (eyes, nose, etc) for each face in the image
 
@@ -177,6 +177,10 @@ def face_landmarks(face_image, face_locations=None, model="large"):
     landmarks = _raw_face_landmarks(face_image, face_locations, model)
     landmarks_as_tuples = [[(p.x, p.y) for p in landmark.parts()] for landmark in landmarks]
 
+    #just return points array
+    if not return_dict:
+        return np.array(landmarks_as_tuples)
+    
     # For a definition of each point index, see https://cdn-images-1.medium.com/max/1600/1*AbEg31EgkbXSQehuNJBlWg.png
     if model == 'large':
         return [{
