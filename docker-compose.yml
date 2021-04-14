@@ -9,8 +9,9 @@ services:
       context: .
       #Uncomment this line to run the example on the GPU (requires Nvidia-Docker)
       # dockerfile: Dockerfile.gpu 
-    command: python3 -u find_faces_in_picture_cnn.py
+    command: python3 -u extract_keypoints.py /media/Utterances /media/FaceKeypoints
     volumes:
       - ./:/face_recognition
+      - /media/quadserver2/data/paul/face/OMGEmotion:/media
     #Uncomment this line to run the example on the GPU (requires Nvidia-Docker)
     # runtime: nvidia
