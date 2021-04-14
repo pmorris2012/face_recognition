@@ -12,7 +12,8 @@ libsm6 \
 libxext6 \
 libxrender-dev \
 python3 \
-python3-pip
+python3-pip \
+python3-opencv
 
 RUN pip3 install scikit-build
 
