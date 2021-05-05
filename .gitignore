@@ -65,3 +65,4 @@ target/
 .python-version
 
 .idea/
+docker-compose.yml
